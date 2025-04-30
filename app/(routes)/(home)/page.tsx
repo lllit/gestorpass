@@ -1,8 +1,9 @@
+import HeaderMain from "./components/HeaderMain/HeaderMain"
 
 const Home = () => {
   return (
     <div>
-      from hoem
+      <HeaderMain></HeaderMain>
     </div>
   )
 }
