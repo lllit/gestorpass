@@ -26,6 +26,7 @@ import { Copy, Earth, Eye, Shuffle } from "lucide-react";
 import { copyClipboard } from "@/lib/copyClipboard";
 import { useState } from "react";
 import { generatePassword } from "@/lib/generatePassword";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function FormAddElement() {
   const [showPassword, setShowPassword] = useState(false);
@@ -53,11 +54,10 @@ export default function FormAddElement() {
   };
 
   const generateRandomPassword = () => {
-    const password = generatePassword()
-   
-    
-    form.setValue("password", password)
-  }
+    const password = generatePassword();
+
+    form.setValue("password", password);
+  };
 
   const updateUrl = () => {
     form.setValue("urlWebsite", window.location.href);
@@ -229,18 +229,31 @@ export default function FormAddElement() {
         ></FormField>
 
         <div className="">
-            <div className="text-slate-400 flex items-center justify-between text-sm">
-                Autenticación TOP
-                <p className="px-3 bg-green-700 text-white rounded-lg text-xs mr-5">Premium</p>
-            </div>
-            <Input disabled></Input>
+          <div className="text-slate-400 flex items-center justify-between text-sm">
+            Autenticación TOP
+            <p className="px-3 bg-green-700 text-white rounded-lg text-xs mr-5">
+              Premium
+            </p>
+          </div>
+          <Input disabled></Input>
         </div>
 
 
-
-
-
-        <Button type="submit">Enviar</Button>
+        <FormField
+          control={form.control}
+          name="notes"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Notes</FormLabel>
+              <FormControl>
+                <Textarea {...field}></Textarea>
+              </FormControl>
+              <FormMessage></FormMessage>
+            </FormItem>
+          )}
+        ></FormField>
+        <div></div>
+        <Button type="submit" className="cursor-pointer">Guardar</Button>
       </form>
     </Form>
   );
