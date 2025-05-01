@@ -2,6 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import axios from "axios";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -27,9 +28,17 @@ import { copyClipboard } from "@/lib/copyClipboard";
 import { useState } from "react";
 import { generatePassword } from "@/lib/generatePassword";
 import { Textarea } from "@/components/ui/textarea";
+import { db } from "@/lib/db";
+import { toast } from "sonner";
+import { title } from "process";
+import { useRouter } from "next/navigation";
 
 export default function FormAddElement() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const router = useRouter();
+
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,11 +55,30 @@ export default function FormAddElement() {
     },
   });
 
-  // 2. Define a submit handler.
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      await axios.post("/api/items", values);
+      toast("Item creado");
+      form.reset({
+        typeElement: "",
+        isFavourite: false,
+        name: "",
+        directory: "",
+        username: "",
+        password: "",
+        urlWebsite: "",
+        notes: "",
+        userId: "ChampangNombre",
+      });
+      router.refresh();
+      
+
+
+
+
+    } catch (error) {
+      toast("Algo salio mal!");
+    }
   };
 
   const generateRandomPassword = () => {
@@ -238,7 +266,6 @@ export default function FormAddElement() {
           <Input disabled></Input>
         </div>
 
-
         <FormField
           control={form.control}
           name="notes"
@@ -253,7 +280,9 @@ export default function FormAddElement() {
           )}
         ></FormField>
         <div></div>
-        <Button type="submit" className="cursor-pointer">Guardar</Button>
+        <Button type="submit" className="cursor-pointer">
+          Guardar
+        </Button>
       </form>
     </Form>
   );

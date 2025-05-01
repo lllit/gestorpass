@@ -65,7 +65,7 @@ const HeaderMain = () => {
         </DropdownMenu>
         <DialogContent className="sm:max-w-[825px]">
           <DialogHeader>
-            <DialogTitle className="font-normal">Nuevo elemento</DialogTitle>
+            <DialogTitle className="font-medium">Nuevo elemento</DialogTitle>
           </DialogHeader>
           {typeElement === 'password' && <FormAddElement></FormAddElement>}
           
