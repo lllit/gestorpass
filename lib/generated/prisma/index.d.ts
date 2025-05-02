@@ -2019,6 +2019,7 @@ export namespace Prisma {
     name: string | null
     typeElement: string | null
     isFavourite: boolean | null
+    directory: string | null
     urlWebsite: string | null
     username: string | null
     password: string | null
@@ -2033,6 +2034,7 @@ export namespace Prisma {
     name: string | null
     typeElement: string | null
     isFavourite: boolean | null
+    directory: string | null
     urlWebsite: string | null
     username: string | null
     password: string | null
@@ -2047,6 +2049,7 @@ export namespace Prisma {
     name: number
     typeElement: number
     isFavourite: number
+    directory: number
     urlWebsite: number
     username: number
     password: number
@@ -2063,6 +2066,7 @@ export namespace Prisma {
     name?: true
     typeElement?: true
     isFavourite?: true
+    directory?: true
     urlWebsite?: true
     username?: true
     password?: true
@@ -2077,6 +2081,7 @@ export namespace Prisma {
     name?: true
     typeElement?: true
     isFavourite?: true
+    directory?: true
     urlWebsite?: true
     username?: true
     password?: true
@@ -2091,6 +2096,7 @@ export namespace Prisma {
     name?: true
     typeElement?: true
     isFavourite?: true
+    directory?: true
     urlWebsite?: true
     username?: true
     password?: true
@@ -2178,6 +2184,7 @@ export namespace Prisma {
     name: string | null
     typeElement: string
     isFavourite: boolean
+    directory: string | null
     urlWebsite: string | null
     username: string | null
     password: string | null
@@ -2209,6 +2216,7 @@ export namespace Prisma {
     name?: boolean
     typeElement?: boolean
     isFavourite?: boolean
+    directory?: boolean
     urlWebsite?: boolean
     username?: boolean
     password?: boolean
@@ -2226,6 +2234,7 @@ export namespace Prisma {
     name?: boolean
     typeElement?: boolean
     isFavourite?: boolean
+    directory?: boolean
     urlWebsite?: boolean
     username?: boolean
     password?: boolean
@@ -2235,7 +2244,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type ElementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "typeElement" | "isFavourite" | "urlWebsite" | "username" | "password" | "notes" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["element"]>
+  export type ElementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "typeElement" | "isFavourite" | "directory" | "urlWebsite" | "username" | "password" | "notes" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["element"]>
   export type ElementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | Element$userArgs<ExtArgs>
   }
@@ -2250,6 +2259,7 @@ export namespace Prisma {
       name: string | null
       typeElement: string
       isFavourite: boolean
+      directory: string | null
       urlWebsite: string | null
       username: string | null
       password: string | null
@@ -2654,6 +2664,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Element", 'String'>
     readonly typeElement: FieldRef<"Element", 'String'>
     readonly isFavourite: FieldRef<"Element", 'Boolean'>
+    readonly directory: FieldRef<"Element", 'String'>
     readonly urlWebsite: FieldRef<"Element", 'String'>
     readonly username: FieldRef<"Element", 'String'>
     readonly password: FieldRef<"Element", 'String'>
@@ -3093,6 +3104,7 @@ export namespace Prisma {
     name: 'name',
     typeElement: 'typeElement',
     isFavourite: 'isFavourite',
+    directory: 'directory',
     urlWebsite: 'urlWebsite',
     username: 'username',
     password: 'password',
@@ -3266,6 +3278,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"Element"> | string | null
     typeElement?: StringFilter<"Element"> | string
     isFavourite?: BoolFilter<"Element"> | boolean
+    directory?: StringNullableFilter<"Element"> | string | null
     urlWebsite?: StringNullableFilter<"Element"> | string | null
     username?: StringNullableFilter<"Element"> | string | null
     password?: StringNullableFilter<"Element"> | string | null
@@ -3281,6 +3294,7 @@ export namespace Prisma {
     name?: SortOrder
     typeElement?: SortOrder
     isFavourite?: SortOrder
+    directory?: SortOrder
     urlWebsite?: SortOrder
     username?: SortOrder
     password?: SortOrder
@@ -3299,6 +3313,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"Element"> | string | null
     typeElement?: StringFilter<"Element"> | string
     isFavourite?: BoolFilter<"Element"> | boolean
+    directory?: StringNullableFilter<"Element"> | string | null
     urlWebsite?: StringNullableFilter<"Element"> | string | null
     username?: StringNullableFilter<"Element"> | string | null
     password?: StringNullableFilter<"Element"> | string | null
@@ -3314,6 +3329,7 @@ export namespace Prisma {
     name?: SortOrder
     typeElement?: SortOrder
     isFavourite?: SortOrder
+    directory?: SortOrder
     urlWebsite?: SortOrder
     username?: SortOrder
     password?: SortOrder
@@ -3334,6 +3350,7 @@ export namespace Prisma {
     name?: StringNullableWithAggregatesFilter<"Element"> | string | null
     typeElement?: StringWithAggregatesFilter<"Element"> | string
     isFavourite?: BoolWithAggregatesFilter<"Element"> | boolean
+    directory?: StringNullableWithAggregatesFilter<"Element"> | string | null
     urlWebsite?: StringNullableWithAggregatesFilter<"Element"> | string | null
     username?: StringNullableWithAggregatesFilter<"Element"> | string | null
     password?: StringNullableWithAggregatesFilter<"Element"> | string | null
@@ -3439,6 +3456,7 @@ export namespace Prisma {
     name?: string | null
     typeElement: string
     isFavourite: boolean
+    directory?: string | null
     urlWebsite?: string | null
     username?: string | null
     password?: string | null
@@ -3453,6 +3471,7 @@ export namespace Prisma {
     name?: string | null
     typeElement: string
     isFavourite: boolean
+    directory?: string | null
     urlWebsite?: string | null
     username?: string | null
     password?: string | null
@@ -3466,6 +3485,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     typeElement?: StringFieldUpdateOperationsInput | string
     isFavourite?: BoolFieldUpdateOperationsInput | boolean
+    directory?: NullableStringFieldUpdateOperationsInput | string | null
     urlWebsite?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3479,6 +3499,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     typeElement?: StringFieldUpdateOperationsInput | string
     isFavourite?: BoolFieldUpdateOperationsInput | boolean
+    directory?: NullableStringFieldUpdateOperationsInput | string | null
     urlWebsite?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3493,6 +3514,7 @@ export namespace Prisma {
     name?: string | null
     typeElement: string
     isFavourite: boolean
+    directory?: string | null
     urlWebsite?: string | null
     username?: string | null
     password?: string | null
@@ -3506,6 +3528,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     typeElement?: StringFieldUpdateOperationsInput | string
     isFavourite?: BoolFieldUpdateOperationsInput | boolean
+    directory?: NullableStringFieldUpdateOperationsInput | string | null
     urlWebsite?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3518,6 +3541,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     typeElement?: StringFieldUpdateOperationsInput | string
     isFavourite?: BoolFieldUpdateOperationsInput | boolean
+    directory?: NullableStringFieldUpdateOperationsInput | string | null
     urlWebsite?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
@@ -3684,6 +3708,7 @@ export namespace Prisma {
     name?: SortOrder
     typeElement?: SortOrder
     isFavourite?: SortOrder
+    directory?: SortOrder
     urlWebsite?: SortOrder
     username?: SortOrder
     password?: SortOrder
@@ -3698,6 +3723,7 @@ export namespace Prisma {
     name?: SortOrder
     typeElement?: SortOrder
     isFavourite?: SortOrder
+    directory?: SortOrder
     urlWebsite?: SortOrder
     username?: SortOrder
     password?: SortOrder
@@ -3712,6 +3738,7 @@ export namespace Prisma {
     name?: SortOrder
     typeElement?: SortOrder
     isFavourite?: SortOrder
+    directory?: SortOrder
     urlWebsite?: SortOrder
     username?: SortOrder
     password?: SortOrder
@@ -3934,6 +3961,7 @@ export namespace Prisma {
     name?: string | null
     typeElement: string
     isFavourite: boolean
+    directory?: string | null
     urlWebsite?: string | null
     username?: string | null
     password?: string | null
@@ -3947,6 +3975,7 @@ export namespace Prisma {
     name?: string | null
     typeElement: string
     isFavourite: boolean
+    directory?: string | null
     urlWebsite?: string | null
     username?: string | null
     password?: string | null
@@ -3988,6 +4017,7 @@ export namespace Prisma {
     name?: StringNullableFilter<"Element"> | string | null
     typeElement?: StringFilter<"Element"> | string
     isFavourite?: BoolFilter<"Element"> | boolean
+    directory?: StringNullableFilter<"Element"> | string | null
     urlWebsite?: StringNullableFilter<"Element"> | string | null
     username?: StringNullableFilter<"Element"> | string | null
     password?: StringNullableFilter<"Element"> | string | null
@@ -4068,6 +4098,7 @@ export namespace Prisma {
     name?: string | null
     typeElement: string
     isFavourite: boolean
+    directory?: string | null
     urlWebsite?: string | null
     username?: string | null
     password?: string | null
@@ -4080,6 +4111,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     typeElement?: StringFieldUpdateOperationsInput | string
     isFavourite?: BoolFieldUpdateOperationsInput | boolean
+    directory?: NullableStringFieldUpdateOperationsInput | string | null
     urlWebsite?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4092,6 +4124,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     typeElement?: StringFieldUpdateOperationsInput | string
     isFavourite?: BoolFieldUpdateOperationsInput | boolean
+    directory?: NullableStringFieldUpdateOperationsInput | string | null
     urlWebsite?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4104,6 +4137,7 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     typeElement?: StringFieldUpdateOperationsInput | string
     isFavourite?: BoolFieldUpdateOperationsInput | boolean
+    directory?: NullableStringFieldUpdateOperationsInput | string | null
     urlWebsite?: NullableStringFieldUpdateOperationsInput | string | null
     username?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null

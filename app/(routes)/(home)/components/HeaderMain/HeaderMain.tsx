@@ -20,22 +20,21 @@ import { ChevronDown } from "lucide-react";
 import { dataHeaderMain } from "./HeaderMain.data";
 import { useState } from "react";
 import FormAddElement from "../FormAddElement/FormAddElement";
+import { HeaderMainProps } from "./HeaderMain.types";
 
-const HeaderMain = () => {
+const HeaderMain = (props: HeaderMainProps) => {
+  const { userId } = props;
   const [typeElement, setTypeElement] = useState<"password" | "folder" | "">();
   const [openDialog, setOpenDialog] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
   const closeDialogAndDropdown = () => {
-    setOpenDialog(false)
-    setOpenDropdown(false)
+    setOpenDialog(false);
+    setOpenDropdown(false);
   };
 
-  
   return (
     <div className="flex justify-between items-center">
-      <h1 className="text-xl md:text-3xl font-sans">
-        Todas las cajas fuertes
-      </h1>
+      <h1 className="text-xl md:text-3xl font-sans">Todas las cajas fuertes</h1>
       <Dialog open={openDialog} onOpenChange={setOpenDialog}>
         <DropdownMenu open={openDropdown} onOpenChange={setOpenDropdown}>
           <DropdownMenuTrigger asChild>
@@ -67,8 +66,7 @@ const HeaderMain = () => {
           <DialogHeader>
             <DialogTitle className="font-medium">Nuevo elemento</DialogTitle>
           </DialogHeader>
-          {typeElement === 'password' && <FormAddElement></FormAddElement>}
-          
+          {typeElement === "password" && <FormAddElement userId={userId}></FormAddElement>}
         </DialogContent>
       </Dialog>
     </div>

@@ -5,37 +5,38 @@ import { db } from '@/lib/db'
 
 const handler = NextAuth({
     session: {
-        strategy:'jwt'
-        
+        strategy: 'jwt'
+
     },
-    pages:{
+    pages: {
         signIn: "/login"
     },
-    providers:[
+    providers: [
         CredentialsProvider({
             name: "Credentials",
-            credentials:{
-                email: {label:"email", type:"text"},
-                password: {label: "password", type: "password"}
+            credentials: {
+                email: { label: "email", type: "text" },
+                password: { label: "password", type: "password" }
             },
-            async authorize(credentials){
-                if(!credentials?.email || !credentials?.password){
+            async authorize(credentials) {
+
+                if (!credentials?.email || !credentials?.password) {
                     throw new Error("Credenciales erroneas")
                 }
 
                 const user = await db?.user.findUnique({
-                    where:{
+                    where: {
                         email: credentials.email
                     }
                 })
-                if(!user || !user?.hashedPassword){
+                if (!user || !user?.hashedPassword) {
                     throw new Error("Credenciales erroneas")
                 }
                 const isCorrectPassword = await compare(
                     credentials.password,
                     user.hashedPassword
                 )
-                if(!isCorrectPassword){
+                if (!isCorrectPassword) {
                     throw new Error("Credenciales erroneas")
                 }
 
@@ -46,4 +47,4 @@ const handler = NextAuth({
     ]
 })
 
-export {handler as GET, handler as POST}
+export { handler as GET, handler as POST }

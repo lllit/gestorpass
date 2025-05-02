@@ -34,6 +34,7 @@ model Element {
   name        String?
   typeElement String // inicio de sesion - Tarjeta - Identidad
   isFavourite Boolean
+  directory   String?
   urlWebsite  String?
   username    String?
   password    String?

@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -28,17 +27,18 @@ import { copyClipboard } from "@/lib/copyClipboard";
 import { useState } from "react";
 import { generatePassword } from "@/lib/generatePassword";
 import { Textarea } from "@/components/ui/textarea";
-import { db } from "@/lib/db";
 import { toast } from "sonner";
-import { title } from "process";
 import { useRouter } from "next/navigation";
+import { FormAddElementProps } from "./FormAddElement.types";
 
-export default function FormAddElement() {
+export default function FormAddElement(props: FormAddElementProps) {
+
+  const { userId } = props;
+  //console.log(userId);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const router = useRouter();
-
-
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -51,7 +51,7 @@ export default function FormAddElement() {
       password: "",
       urlWebsite: "",
       notes: "",
-      userId: "ChampangNombre",
+      userId: userId,
     },
   });
 
@@ -68,14 +68,8 @@ export default function FormAddElement() {
         password: "",
         urlWebsite: "",
         notes: "",
-        userId: "ChampangNombre",
       });
       router.refresh();
-      
-
-
-
-
     } catch (error) {
       toast("Algo salio mal!");
     }
