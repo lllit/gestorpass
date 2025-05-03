@@ -16,11 +16,11 @@ export default function SidebarMobile() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button>
+        <Button className="cursor-pointer">
             <Menu></Menu>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="bg-blue-800 text-white">
+      <SheetContent side="right" className="bg-blue-800 text-white ">
         <SheetHeader className="text-left">
           <SheetTitle className="text-white font-light">GestorPass</SheetTitle>
           <SheetDescription className="text-slate-100 font-light">
