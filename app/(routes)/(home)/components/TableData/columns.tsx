@@ -34,7 +34,7 @@ export const columns: ColumnDef<ColumProps>[] = [
         const username = row.original.username;
 
         const onEditElement = () => {
-            console.log("Edit")
+            window.location.href = `/element/${row.original.id}`;
         }
         const copyItemClipboard = (item:string, name: string) =>{
             navigator.clipboard.writeText(item)

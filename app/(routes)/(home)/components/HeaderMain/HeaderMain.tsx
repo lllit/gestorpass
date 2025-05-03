@@ -66,7 +66,12 @@ const HeaderMain = (props: HeaderMainProps) => {
           <DialogHeader>
             <DialogTitle className="font-medium">Nuevo elemento</DialogTitle>
           </DialogHeader>
-          {typeElement === "password" && <FormAddElement userId={userId}></FormAddElement>}
+          {typeElement === "password" && (
+            <FormAddElement
+              userId={userId}
+              closeDialog={closeDialogAndDropdown}
+            ></FormAddElement>
+          )}
         </DialogContent>
       </Dialog>
     </div>

@@ -13,7 +13,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { formSchema } from "./FormAddElement.form";
 import {
   Select,
   SelectContent,
@@ -29,49 +28,37 @@ import { generatePassword } from "@/lib/generatePassword";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { FormAddElementProps } from "./FormAddElement.types";
+import { FormEditElementProps } from "./FormEditElement.types";
+import { formSchema } from "./FormEditElement.form";
 
-export default function FormAddElement(props: FormAddElementProps) {
-
-  const { userId,closeDialog } = props;
-
+export function FormEditElement(props: FormEditElementProps) {
   const [showPassword, setShowPassword] = useState(false);
+  const { dataElement } = props ?? {};
 
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      typeElement: "",
-      isFavourite: false,
-      name: "",
-      directory: "",
-      username: "",
-      password: "",
-      urlWebsite: "",
-      notes: "",
-      userId: userId,
+      typeElement: dataElement?.typeElement ?? "",
+      isFavourite: dataElement?.isFavourite ?? false,
+      name: dataElement?.name ?? "",
+      directory: dataElement?.directory ?? "",
+      username: dataElement?.username ?? "",
+      password: dataElement?.password ?? "",
+      urlWebsite: dataElement?.urlWebsite ?? "",
+      notes: dataElement?.notes ?? "",
+      userId: dataElement?.userId ?? "",
     },
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.post("/api/items", values);
-      toast("Item creado");
-      form.reset({
-        typeElement: "",
-        isFavourite: false,
-        name: "",
-        directory: "",
-        username: "",
-        password: "",
-        urlWebsite: "",
-        notes: "",
-      });
-      router.refresh();
-
-      closeDialog();
+      await axios.patch(`/api/items/${dataElement.id}`, values);
+      toast("Item editado.");
+      router.push("/");
     } catch (error) {
+      console.error("Error en la actualización:", error);
       toast("Algo salio mal!");
     }
   };
