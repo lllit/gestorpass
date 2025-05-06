@@ -16,7 +16,7 @@ import {
 export default function SidebarRoutes() {
   return (
     <div>
-      <SingleItem href="/" label="Homepage" icon={House}></SingleItem>
+      <SingleItem href="/" label="Home" icon={House}></SingleItem>
       {dataSidebarElements.map(({ title, icon: Icon, children }) => (
         <Accordion
           type="single"
@@ -99,14 +99,14 @@ export default function SidebarRoutes() {
 
       <SingleItem
         href="/analytic"
-        label="Analytics"
+        label="Analiticas"
         icon={BarChart}
       ></SingleItem>
 
       <SingleItem
         onClick={() => console.log("Close session")}
         href="#"
-        label="Close sesion"
+        label="Cerrar Session"
         icon={DoorClosed}
       ></SingleItem>
     </div>

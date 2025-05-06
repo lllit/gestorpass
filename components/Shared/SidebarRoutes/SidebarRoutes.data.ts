@@ -6,7 +6,7 @@ export const dataSidebarElements = [
         icon: LayoutList,
         children: [
             {
-                item: "Favourites",
+                item: "Favoritos",
                 href: "/favourites",
                 icon: Star
             },
@@ -16,7 +16,7 @@ export const dataSidebarElements = [
                 icon: Earth
             },
             {
-                item: "Credits Card",
+                item: "Tarjeta de credito",
                 href: "/credits-card",
                 icon: CreditCard
             }
