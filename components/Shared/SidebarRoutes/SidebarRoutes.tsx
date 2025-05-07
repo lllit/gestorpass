@@ -52,7 +52,7 @@ export default function SidebarRoutes() {
 
       <SingleItem
         href="/generator"
-        label="Generator"
+        label="Generador"
         icon={RectangleEllipsis}
       ></SingleItem>
 

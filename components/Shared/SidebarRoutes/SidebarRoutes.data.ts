@@ -2,7 +2,7 @@ import { CreditCard, Earth, Heart, Landmark, LayoutList, Lock, Settings, Star, U
 
 export const dataSidebarElements = [
     {
-        title: "Elements",
+        title: "Elementos",
         icon: LayoutList,
         children: [
             {
@@ -26,23 +26,23 @@ export const dataSidebarElements = [
 
 export const dataSidebarConfiguration = [
     {
-        title: "Configuration",
+        title: "Configuración",
         icon: Settings,
         children: [
             {
-                item: "Profile",
+                item: "Perfil",
                 href: "/profile",
                 icon: UserPen,
                 premium: false
             },
             {
-                item: "Security",
+                item: "Seguridad",
                 href: "#",
                 icon: Lock,
                 premium: true
             },
             {
-                item: "Suscription",
+                item: "Suscripción",
                 href: "#",
                 icon: Landmark,
                 premium: true
