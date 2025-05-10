@@ -6,12 +6,13 @@ import { redirect } from "next/navigation";
 export default async function ElementPage({
   params,
 }: {
-  params: { elementId: string };
+  params: Awaited<{ elementId: string }>;
 }) {
-  if (!params?.elementId) {
+  const resolvedParams = await Promise.resolve(params);
+
+  if (!resolvedParams?.elementId) {
     return redirect("/");
   }
-
 
   const session = await getServerSession();
 
@@ -19,8 +20,7 @@ export default async function ElementPage({
     return redirect("/");
   }
 
-
-  const elementId = params.elementId; 
+  const elementId = params.elementId;
 
   const element = await db.element.findUnique({
     where: { id: elementId },
@@ -29,7 +29,6 @@ export default async function ElementPage({
   if (!element) {
     return redirect("/");
   }
-
 
   return (
     <div>
