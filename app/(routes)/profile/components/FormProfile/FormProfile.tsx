@@ -78,10 +78,10 @@ export function FormProfile(props: FormProfileProps) {
                         height={60}
                         className="rounded-full"
                       ></Image>
-                      <div className="w-[200px]">
+                      <div className="w-[200px] ">
                         {showUpdaloadPhoto ? (
                           <UploadButton
-                            className="rounded-md text-slate-800 bg-slate-200 mt-3"
+                            className="rounded-md text-slate-800 bg-slate-200 mt-3 "
                             {...field}
                             endpoint="profileImage"
                             onClientUploadComplete={(res) => {
@@ -95,6 +95,7 @@ export function FormProfile(props: FormProfileProps) {
                             onClick={() =>
                               setShowUpdaloadPhoto((prev) => !prev)
                             }
+                            className="cursor-pointer"
                           >
                             <Upload className="mr-2 w-4 h-4"></Upload>Cambiar
                             foto

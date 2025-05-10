@@ -7,10 +7,10 @@ import RegisterForms from "../RegisterForms/RegisterForms"
 
 export default function TabsForms() {
   return (
-    <Tabs defaultValue="singin" className="w-[400px]">
+    <Tabs defaultValue="singin" className="w-[400px] ">
         <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="signin">Sign in</TabsTrigger>
-            <TabsTrigger value="signup">Sign up</TabsTrigger>
+            <TabsTrigger value="signin" className="cursor-pointer">Sign in</TabsTrigger>
+            <TabsTrigger value="signup" className="cursor-pointer">Sign up</TabsTrigger>
         </TabsList>
         <TabsContent value="signin">
             <Card>

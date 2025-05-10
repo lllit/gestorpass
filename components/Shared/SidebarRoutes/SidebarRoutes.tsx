@@ -12,6 +12,7 @@ import {
   dataSidebarConfiguration,
   dataSidebarElements,
 } from "./SidebarRoutes.data";
+import { signOut } from "next-auth/react";
 
 export default function SidebarRoutes() {
   return (
@@ -98,13 +99,13 @@ export default function SidebarRoutes() {
       ))}
 
       <SingleItem
-        href="/analytic"
+        href="/analytics"
         label="Analiticas"
         icon={BarChart}
       ></SingleItem>
 
       <SingleItem
-        onClick={() => console.log("Close session")}
+        onClick={() => signOut()}
         href="#"
         label="Cerrar Session"
         icon={DoorClosed}
