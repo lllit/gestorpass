@@ -4,12 +4,12 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 type ElementPageProps = {
-  params: { elementId: string };
+  params: Record<string, string>;
 };
 
+
 export default async function ElementPage({ params }: ElementPageProps) {
-  const resolvedParams = await Promise.resolve(params);
-  const { elementId } = resolvedParams;
+  const { elementId } = params;
 
   if (!elementId) {
     return redirect("/");
