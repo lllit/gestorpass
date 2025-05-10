@@ -3,19 +3,15 @@ import { db } from "@/lib/db";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-type PageProps  = {
+type ElementPageProps = {
   params: { elementId: string };
 };
 
-
-export default async function ElementPage({
-  params,
-}: PageProps) {
-
-  if (!params?.elementId) {
+export default async function ElementPage({ params }: ElementPageProps) {
+  const { elementId } = params;
+  if (!elementId) {
     return redirect("/");
   }
-
 
   const session = await getServerSession();
 
@@ -24,16 +20,14 @@ export default async function ElementPage({
   }
 
 
-  const elementId = params.elementId; 
-
   const element = await db.element.findUnique({
     where: { id: elementId },
   });
 
+
   if (!element) {
     return redirect("/");
   }
-
 
   return (
     <div>
