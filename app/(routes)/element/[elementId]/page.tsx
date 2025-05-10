@@ -4,12 +4,15 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 type ElementPageProps = {
-  params: Record<string, string>;
+  params: { elementId: string } | Promise<{ elementId: string }>;
 };
 
 
+
 export default async function ElementPage({ params }: ElementPageProps) {
-  const { elementId } = params;
+  const resolvedParams = await params; // Asegura que params NO es una promesa antes de usarlo
+  const { elementId } = resolvedParams;
+
 
   if (!elementId) {
     return redirect("/");
