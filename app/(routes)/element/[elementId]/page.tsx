@@ -8,7 +8,9 @@ type ElementPageProps = {
 };
 
 export default async function ElementPage({ params }: ElementPageProps) {
-  const { elementId } = params;
+  const resolvedParams = await Promise.resolve(params);
+  const { elementId } = resolvedParams;
+
   if (!elementId) {
     return redirect("/");
   }
@@ -19,11 +21,9 @@ export default async function ElementPage({ params }: ElementPageProps) {
     return redirect("/");
   }
 
-
   const element = await db.element.findUnique({
     where: { id: elementId },
   });
-
 
   if (!element) {
     return redirect("/");
