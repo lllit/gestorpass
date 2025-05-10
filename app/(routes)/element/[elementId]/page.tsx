@@ -3,11 +3,15 @@ import { db } from "@/lib/db";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
+type ElementPageProps = {
+  params: { elementId: string };
+};
+
+
 export default async function ElementPage({
   params,
-}: {
-  params: { elementId: string };
-}) {
+}: ElementPageProps) {
+
   if (!params?.elementId) {
     return redirect("/");
   }
